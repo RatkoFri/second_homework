@@ -31,14 +31,17 @@ The combination of these two parameters defines one of the four SPI modes (Mode 
 
 In the figure below, the sampling and generation of signals on the SPI bus are shown for Mode 0 (CPOL = 0, CPHA = 0).
 
-![](./img/SPI1.drawio.png "SPI Signals")
+![](./img/SPI2.drawio.png "SPI Signals")
 
 Legend:
 
-a – generation of bit B7 on the MOSI line
-b – sampling of bit B7 on the MISO line
-c – generation of bit B6 on the MOSI line
-d – sampling of bit B6 on the MISO line
+- a – generation of bit B7 on the MOSI line
+
+- b – sampling of bit B7 on the MISO line
+
+- c – generation of bit B6 on the MOSI line
+
+- d – sampling of bit B6 on the MISO line
 
 
 ## Implementing an SPI Communication Controller
@@ -53,12 +56,14 @@ In the WRITE state, the controller drives the output data. Here as well, it coun
 
 ![](./img/SPI3.png "SPI Signals")
 
+In repository, we provided testbench and draft of SPI controller, that you can use.
 
 ## Integration with FProV2 SoC
 
 Integrate the SPI controller into the FProV2 SoC design, allowing the CPU to read from and write from SPI device. To achieve this, you will need to:
 - Implement the SPI controller as described above.
 - Add buffer which will be used to store data to be transmitted and data received from the SPI device.
+   - take inspiration from UART receiver and transmitter   
 - Add a wrapping circuit for compilance with APB protocol.
 
 ### ADXL362 accelerometer
